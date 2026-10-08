@@ -110,7 +110,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./backend
-          file: ./backend/Dockerfile.prod
+          file: ./Dockerfile.prod
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-backend.outputs.tags }}
           labels: ${{ steps.meta-backend.outputs.labels }}
@@ -130,7 +130,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
-          file: ./frontend/Dockerfile.prod
+          file: ./Dockerfile.prod
           build-args: |
             VITE_API_URL=http://localhost:5000
           push: ${{ github.event_name != 'pull_request' }}
